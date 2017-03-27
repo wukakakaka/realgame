@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div id="main">
+	<div id="inputName" class="inputName">
+		<input type="" id="userName" value="请输入你的姓名">
+	</div>
+	<div id="btn" class="btn">
+		STAR
+	</div>
+</div>
+<div id="result">
+	<div class="divImg" id="divImg"></div>
+	<div class="divTitle" id="divTitle"></div>
+	<div class="pageBtn" id="pageBtn">
+		拖走下一位
+	</div>
+</div>
+<script>
+var arr=[{title:"你的初吻是几岁在什么地方被什么人夺去的?",imgSrc:"img/4.jpg"},
+			{title:"你的初恋是几岁?",imgSrc:"img/4.jpg"},
+			{title:"你的初恋对象是谁?",imgSrc:"img/4.jpg"},
+			{title:"你的初恋对象是谁?",imgSrc:"img/4.jpg"},
+			{title:"你的初恋对象是谁?",imgSrc:"img/4.jpg"},
+			{title:"你的初恋对象是谁?",imgSrc:"img/4.jpg"},
+			{title:"你的初恋对象是谁?",imgSrc:"img/4.jpg"},
+			{title:"你的初恋对象是谁?",imgSrc:"img/4.jpg"},
+			{title:"你的初恋对象是谁?",imgSrc:"img/4.jpg"},
+			{title:"你的初恋对象是谁?",imgSrc:"img/4.jpg"}];
+window.onload = function(){
+				var inputDiv = document.getElementById("inputName");
+				var btn = document.getElementById("btn");
+				var result = document.getElementById("result");
+				var divImg = document.getElementById("divImg");
+				var divTitle = document.getElementById("divTitle");
+				var pageBtn = document.getElementById("pageBtn");
+				var userName = document.getElementById("userName");
+				inputName.className = "inputNameStart";
+				btn.className = "btnStart";
+				var length = arr.length;
+				var newImg;
+				userName.onfocus = function(){
+					this.value = "";
+				}
+				btn.addEventListener("click",function(){
+					var randomNum;
+					if(userName.value==""||userName.value=="请输入你的姓名"){
+						divTitle.innerHTML = "你叫什么名字？";
+						divTitle.style.display = "block";
+					}else{
+						randomNum =parseInt(Math.random()*length);
+						newImg = document.createElement("img");
+						newImg.src = arr[randomNum].imgSrc;
+						divImg.appendChild(newImg);
+						divTitle.innerHTML =userName.value+":"+ arr[randomNum].title;
+						divImg.style.display = "block";
+						divTitle.style.display = "block";
+					}
+					inputDiv.style.left = "200%";
+					btn.style.left = "200%";
+					result.style.top = "0%";
+					main.style.backgroundColor = "rgba(255,255,255,0.8)";
+					
+				
+				
+				})
+				pageBtn.addEventListener("click",function(){
+					userName.value="请输入您的名字";
+					
+					divImg.style.display = "none";
+					divTitle.style.display = "none";
+					inputDiv.style.left = "50%";
+					btn.style.left = "50%";
+					result.style.top = "100%";
+					main.style.backgroundColor = "rgba(255,255,255,0)";
+				});
+				
+
+
+
+}
+
+</script>
+
+</body>
+</html>
